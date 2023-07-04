@@ -1,5 +1,4 @@
 const { Product, Sequelize } = require('../models/index.js');
-const product = require('../models/product.js');
 const { Op } = Sequelize;
 
 
@@ -19,7 +18,7 @@ const ProductController = {
             })
     },
     getById(req, res) {
-        Product.findByPk(req.params.id, {})
+        Product.findByPk(req.params.id)
             .then(product => res.send(product))
             .catch((err) => {
                 console.error(err);
@@ -34,25 +33,40 @@ const ProductController = {
                 if (product) {
                     res.send(product);
                 } else {
-                    res.status(404).send({message:'Sorry! We did not find any product with this letter!',product });
+                    res.status(404).send({ message: 'Sorry! We did not find any product with this letter!', product });
                 }
             })
     },
     update(req, res) {
         const productId = req.params.id;
         const updatedData = req.body;
-      
+        
         Product.update(updatedData, {
-          where: {
-            id: productId }}
-            , (err, result) => {
-          if (err) {
-            console.error(err);
-            return res.status(500).send(err);
-          }
-          res.send("Product updated!");
+            where: {
+                id: productId
+            }
+        })
+        .then(() => {
+            res.send("Product updated!");
+        })
+        .catch((err) => {
+            console.error(err);+
+            res.status(500).send(err);
         });
-      }
+    },
+    delete(req, res) {
+        Product.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
+            .then(product => {
+                if (product) {
+                    res.send({ message: 'This product is deleted!' });
+                }
+            })
+    },
+
 }
 
 
