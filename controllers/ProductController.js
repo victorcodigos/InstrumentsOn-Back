@@ -40,19 +40,13 @@ const ProductController = {
     update(req, res) {
         const productId = req.params.id;
         const updatedData = req.body;
-        
+
         Product.update(updatedData, {
-            where: {
-                id: productId
-            }
+            where: { id: productId }
         })
-        .then(() => {
-            res.send("Product updated!");
-        })
-        .catch((err) => {
-            console.error(err);+
-            res.status(500).send(err);
-        });
+            .then(() => {
+                res.send("Product updated!");
+            })
     },
     delete(req, res) {
         Product.destroy({
@@ -66,6 +60,19 @@ const ProductController = {
                 }
             })
     },
+    getByPrice(req, res) {
+        const price = req.params.price;
+        Product.findOne({ where: { price: price } })
+            .then((product) => {
+                if (product) {
+                    res.send(product);
+                } else {
+                    res.status(404).send(`We did not find any product with this ${price}.`);
+                }
+            })
+
+    },
+
 
 }
 
