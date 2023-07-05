@@ -40,7 +40,6 @@ const ProductController = {
     update(req, res) {
         const productId = req.params.id;
         const updatedData = req.body;
-
         Product.update(updatedData, {
             where: { id: productId }
         })
