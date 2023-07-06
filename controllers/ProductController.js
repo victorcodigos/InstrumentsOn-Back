@@ -1,4 +1,5 @@
 const { Product, Sequelize, Category } = require('../models/index.js');
+const product = require('../models/product.js');
 const { Op } = Sequelize;
 
 
@@ -6,7 +7,11 @@ const ProductController = {
 
     create(req, res) {
         Product.create(req.body)
-            .then(product => res.status(201).send({ message: 'Product created!', product }))
+        //inserte tabla intermedia
+            .then(product => {
+                product.addCategory(req.body.CategoryId)
+
+                res.status(201).send({ message: 'Product created!', product })})
             .catch(console.error)
     },
     getAll(req, res) {

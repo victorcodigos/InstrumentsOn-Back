@@ -23,11 +23,11 @@ const UserController = {
             }
         }).then(user => {
             if (!user) {
-                return res.status(400).send({ message: "Usuario o contraseña incorrectos" })
+                return res.status(400).send({ message: "Incorrect username or password!" })
             }
             const isMatch = bcrypt.compareSync(req.body.password, user.password);
             if (!isMatch) {
-                return res.status(400).send({ message: "Usuario o contraseña incorrectos" })
+                return res.status(400).send({ message: "Incorrect username or password" })
             }
             const token = jwt.sign({ id: user.id }, jwt_secret);
             Token.create({ token, UserId: user.id }).then(
@@ -49,10 +49,10 @@ const UserController = {
                     ]
                 }
             });
-            res.send({ message: 'Successfully disconnected' })
+            res.send({ message: "Successfully disconnected" })
         }catch (error) {
             console.log(error)
-            res.status(500).send({ message: 'There was a problem trying to log you out' })
+            res.status(500).send({ message: "There was a problem trying to log you out" })
         }
     }
 }

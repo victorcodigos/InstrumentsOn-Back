@@ -58,6 +58,17 @@ const CategoryController = {
                         }
                     })
                 },
+                getAll(req, res) {
+                    Category.findAll({
+                        include: [ Product ]
+                    })
+                        .then(categories => res.send(categories))
+                        .catch(err => {
+                            console.error(err);
+                            res.status(500).send(err)
+                        })
+
+                },
         
 
 }
