@@ -7,13 +7,16 @@ const { Op } = Sequelize;
 
 const UserController = {
 
-    create(req, res) {
+    create(req, res, next) {
         req.body.role = "user";
         const password = bcrypt.hashSync(req.body.password, 10)
         User.create({ ...req.body, password: password })
             .then(user => res.status(201).send({ message: 'User created successfully!', user }))
-            .catch(err => console.error(err))
-
+            .catch((error) => {
+                console.error(error);
+                res.status(500).send({ message: "There has been a problem", error });
+            });
+        next(error)
     },
 
     login(req, res) {
@@ -46,11 +49,11 @@ const UserController = {
                     [Op.and]:
                         [{ UserId: req.user.id },
                         { token: req.headers.authorization }
-                    ]
+                        ]
                 }
             });
             res.send({ message: "Successfully disconnected" })
-        }catch (error) {
+        } catch (error) {
             console.log(error)
             res.status(500).send({ message: "There was a problem trying to log you out" })
         }

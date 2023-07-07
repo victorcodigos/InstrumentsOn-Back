@@ -1,5 +1,4 @@
- const { Orden } = require('../models/index.js');
-
+const {Orden} = require("../models/index")
 const OrdenController = {
 
     create(req, res){

@@ -11,10 +11,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Orden.belongsTo(models.User);
+      //Orden.belongsToMany(models.Product, {
+        //through: models.OrdenItem,
+      //});
     }
   }
   Orden.init({
-    day: DataTypes.DATE
+    day: DataTypes.DATE,
+    UserId:DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Orden',
