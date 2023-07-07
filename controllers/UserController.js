@@ -7,16 +7,16 @@ const { Op } = Sequelize;
 
 const UserController = {
 
-    create(req, res, next) {
+    create(req, res) {
         req.body.role = "user";
         const password = bcrypt.hashSync(req.body.password, 10)
         User.create({ ...req.body, password: password })
             .then(user => res.status(201).send({ message: 'User created successfully!', user }))
             .catch((error) => {
                 console.error(error);
-                res.status(500).send({ message: "There has been a problem", error });
+                res.status(500).send({ message: "There has been a problem"});
             });
-        next(error)
+       // next(error)
     },
 
     login(req, res) {
@@ -58,6 +58,7 @@ const UserController = {
             res.status(500).send({ message: "There was a problem trying to log you out" })
         }
     }
+    //endpoint con la informacion del usuario logeado y sus pedidos
 }
 
 module.exports = UserController;
