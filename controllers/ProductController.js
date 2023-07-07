@@ -5,13 +5,13 @@ const { Op } = Sequelize;
 
 const ProductController = {
 
-    create(req, res) {
+    create(err, req, res, next) {
         Product.create(req.body)
             .then(product => {
                 product.addCategory(req.body.CategoryId)
                 res.status(201).send({ message: 'Product created!', product })})
             .catch(console.error)
-            //next(error)
+            next(err)
     },
     getAll(req, res) {
         Product.findAll({

@@ -1,6 +1,8 @@
 const { User, Token, Sequelize } = require('../models/index.js');
 const bcrypt = require('bcryptjs');
 const jwt = require("jsonwebtoken");
+const orden = require('../models/orden.js');
+const product = require('../models/product.js');
 const { jwt_secret } = require("../config/config.json")["development"]
 const { Op } = Sequelize;
 
@@ -57,8 +59,20 @@ const UserController = {
             console.log(error)
             res.status(500).send({ message: "There was a problem trying to log you out" })
         }
-    }
-    //endpoint con la informacion del usuario logeado y sus pedidos
+    },
+    getById(req, res) {
+        User.findByPk(req.params.id, {
+          include: {
+            model: orden,
+            include: product,
+          },
+        })
+          .then((user) => res.send(user))
+          .catch((err) => {
+            console.error(err);
+            res.status(500).send(err);
+          });
+      },
 }
 
 module.exports = UserController;

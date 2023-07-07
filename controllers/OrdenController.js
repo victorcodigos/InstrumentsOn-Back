@@ -16,6 +16,20 @@ const OrdenController = {
         
         .catch(console.error)
     },
+    getAll(req, res) {
+        return new Promise((resolve, reject) => {
+          Orden.findAll({
+            include: [{ model: Product, through: { attributes: [] } }],
+          })
+            .then((ordens) => {
+              resolve(ordens);
+            })
+            .catch((error) => {
+              console.error(error);
+              reject(error);
+            });
+        });
+      }
 }
 
 

@@ -44,7 +44,69 @@ module.exports = {
 
         updatedAt: new Date()
 
-      }
+      },
+      {
+
+        name: 'Victor',
+
+        email: 'victor@thebridge.com',
+
+        password: '123456xxx',
+
+        role: 'user',
+
+        createdAt: new Date(),
+
+        updatedAt: new Date()
+
+      },
+      {
+
+        name: 'Karolina',
+
+        email: 'karolina@yahoo.com',
+
+        password: '123456yyy',
+
+        role: 'user',
+
+        createdAt: new Date(),
+
+        updatedAt: new Date()
+
+      },
+      {
+
+        name: 'Maria',
+
+        email: 'maria@hotmail.com',
+
+        password: '123456kkk',
+
+        role: 'user',
+
+        createdAt: new Date(),
+
+        updatedAt: new Date()
+
+      },
+      {
+
+        name: 'Nilza',
+
+        email: 'nilza@gmail.com',
+
+        password: '123456zzz',
+
+        role: 'user',
+
+        createdAt: new Date(),
+
+        updatedAt: new Date()
+
+      },
+
+
 
     ])
 

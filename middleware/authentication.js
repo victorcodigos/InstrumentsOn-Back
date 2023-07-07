@@ -1,7 +1,8 @@
-const { User, Token, Sequelize } = require('../models');
+const { User, Token, Sequelize} = require('../models');
 const { Op } = Sequelize;
 const jwt = require('jsonwebtoken');
 const { jwt_secret } = require('../config/config.json')['development']
+
 
 
 
@@ -33,4 +34,18 @@ const authentication = async (req, res, next) => {
 
 }
 
-module.exports = { authentication }
+const isAdmin = async (req, res, next) => {
+
+    const admins = ['admin', 'superadmin'];
+    if (!admins.includes(req.user.role)) {
+        return res.status(403).send({
+            message: 'No tienes permisos'
+        });
+    }
+    next();
+
+    
+
+}
+
+module.exports = { authentication, isAdmin}
