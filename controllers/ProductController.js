@@ -1,21 +1,22 @@
-const { Product, Sequelize, Category} = require('../models/index.js');
+const { Product, Sequelize, Category } = require('../models/index.js');
 const product = require('../models/product.js');
 const { Op } = Sequelize;
 
 
 const ProductController = {
 
-    create(err, req, res, next) {
+    create(req, res) {
         Product.create(req.body)
             .then(product => {
                 product.addCategory(req.body.CategoryId)
-                res.status(201).send({ message: 'Product created!', product })})
+                res.status(201).send({ message: 'Product created!', product })
+            })
             .catch(console.error)
-            next(err)
+
     },
     getAll(req, res) {
         Product.findAll({
-             include: [{ model: Category, through: { attributes: [] } }],
+            include: [Category],
         })
             .then(products => res.send(products))
             .catch(err => {
@@ -77,6 +78,17 @@ const ProductController = {
             })
 
     },
+    getInDesc(req, res) {
+        Product.findAll({
+            orden: [["price", "DESC"]],
+        })
+            .then((products) => {
+                res.status(200).send(products)
+            })
+            .catch((error) => {
+                console.error("Try again, please!", error)
+            })
+    }
 
 
 }

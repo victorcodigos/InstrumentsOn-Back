@@ -39,7 +39,7 @@ const isAdmin = async (req, res, next) => {
     const admins = ['admin', 'superadmin'];
     if (!admins.includes(req.user.role)) {
         return res.status(403).send({
-            message: 'No tienes permisos'
+            message: 'You are not authorised!'
         });
     }
     next();
