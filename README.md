@@ -90,6 +90,17 @@ For this project I have made a diagram creating different tables and the relatio
   </h1> 
 
 
+### <h1 align="center"> 🥷 Using the Bcrypt for all passwords 🥷 </h1> 
+
+##### Bcrypt is an algorithm designed to hash and salt passwords for safe storage. It's an industry standard that's time-tested and proven to resist threats from hackers and other malicious agents.
+
+<h1 aligh="center"> </h1> 
+
+<h1>
+  <img src="assets/Bcrypt.png"> </img>
+  
+  </h1>
+
 
 
 ## Future Roadmap
@@ -97,6 +108,8 @@ For this project I have made a diagram creating different tables and the relatio
 - [ ] Add a different style
 - [ ] Add more products
 - [ ] Add reviews
+- [ ] Add send email from servidor
+- [ ] Add validation
 
 
 ## Contributing
