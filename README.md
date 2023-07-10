@@ -101,6 +101,17 @@ For this project I have made a diagram creating different tables and the relatio
   
   </h1>
 
+### <h1 align="center"> ⚒️  Middleware 🗝️ </h1>
+
+##### Middleware is software that lies between an operating system and the applications running on it. Essentially functioning as hidden translation layer, middleware enables communication and data management for distributed applications.
+
+<h1 aligh="center"> </h1> 
+
+<h1>
+  <img src="assets/middleware.png"> </img>
+  
+  </h1>
+
 
 
 ## Future Roadmap
