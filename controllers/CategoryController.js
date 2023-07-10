@@ -11,11 +11,8 @@ const CategoryController = {
     update(req, res) {
         const categoryId = req.params.id;
         const updatedData = req.body;
-        
         Category.update(updatedData, {
-            where: {
-                id: categoryId
-            }
+            where: {id: categoryId}
         })
         .then(() => {
             res.send("Category updated!");
@@ -34,17 +31,19 @@ const CategoryController = {
         })
             .then(category => {
                 if (category) {
-                    res.send({ message: 'This category is deleted!' });
+                    res.send({ message: "This category is deleted!", category});
                 }
             })
         },
         getById(req, res) {
             Category.findByPk(req.params.id)
-                .then(category => res.send(category))
-                .catch((err) => {
-                    console.error(err);
-                    res.status(500).send(err)
-                })
+            .then(category => {
+                if (category) {
+                    res.send(category);
+                } else {
+                    res.status(404).send({ message: "Sorry! This category was deleted!", category });
+                }
+            })
             },
             getOneByName(req, res) {
                 Category.findOne({
@@ -54,7 +53,7 @@ const CategoryController = {
                         if (category) {
                             res.send(category);
                         } else {
-                            res.status(404).send({ message: 'Sorry! We did not find any category with this letter!', category });
+                            res.status(404).send({ message: "Sorry! We did not find any category with this letter!", category });
                         }
                     })
                 },
@@ -62,7 +61,7 @@ const CategoryController = {
                     Category.findAll({
                         include: [ Product ]
                     })
-                        .then(categories => res.send(categories))
+                        .then(categories => res.send({message: "Categories with products", categories}))
                         .catch(err => {
                             console.error(err);
                             res.status(500).send(err)

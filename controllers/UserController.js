@@ -18,7 +18,7 @@ const UserController = {
                 console.error(error);
                 res.status(500).send({ message: "There has been a problem"});
             });
-       // next(error)
+       
     },
 
     login(req, res) {
@@ -62,10 +62,6 @@ const UserController = {
     },
     getById(req, res) {
         User.findByPk(req.params.id, {
-          include: {
-            model: orden,
-            include: product,
-          },
         })
           .then((user) => res.send(user))
           .catch((err) => {

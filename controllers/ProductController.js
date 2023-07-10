@@ -30,10 +30,12 @@ const ProductController = {
     },
     getById(req, res) {
         Product.findByPk(req.params.id)
-            .then(product => res.send(product))
-            .catch((err) => {
-                console.error(err);
-                res.status(500).send(err)
+        .then(product => {
+            if (product) {
+                res.send(product);
+            } else {
+                res.status(404).send({ message: 'Sorry! We did not find any product with this id! Try again!', product });
+            }
             })
     },
     getOneByName(req, res) {
