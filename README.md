@@ -15,7 +15,7 @@
   </p>
 </div>
 
-#  ⚙️ 🔧 Description | Development 
+# <h1 align="center"> ⚙️ Description | Development 🔧 </h1>
 
 For this project I have made a diagram creating different tables and the relationship between them (1:N, N:M, N:M).
 
