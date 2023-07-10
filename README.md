@@ -112,6 +112,18 @@ For this project I have made a diagram creating different tables and the relatio
   
   </h1>
 
+### <h1 align="center"> 🚀 JWT:  Json web token   🖊️ </h1>
+
+#####  JSON Web Token (JWT) is an open standard (RFC 7519) that defines a compact and self-contained way for securely transmitting information between parties as a JSON object. This information can be verified and trusted because it is digitally signed. JWTs can be signed using a secret.
+
+<h1 aligh="center"> </h1> 
+
+<h1>
+  <img src="assets/jwt.png"> </img>
+  
+  </h1>
+
+
 
 
 ## Future Roadmap
