@@ -18,15 +18,13 @@ const OrdenController = {
   },
   getAll(req, res) {
     Orden.findAll({
-      include: [{ model: Product, through: { attributes: [] } }],
+      include: [Product]
     })
-      .then((ordens) => res.send(ordens)
+      .then((orden) => res.send(orden)
       )
       .catch((error) => {
         console.error(error);
-        res.status(500).send({
-          message: "Cannot found the products",
-        });
+        res.status(500).send({message: "Cannot found the products", Orden});
       });
   },
 };

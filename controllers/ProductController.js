@@ -1,23 +1,27 @@
 const { Product, Sequelize, Category } = require('../models/index.js');
-const product = require('../models/product.js');
 const { Op } = Sequelize;
 
 
 const ProductController = {
 
     create(req, res) {
-        Product.create(req.body)
+        const newProduct ={
+            name:req.body.name,
+            type:req.body.type,
+            year:req.body.year,
+            price:req.body.price
+        }
+        
+        Product.create(newProduct)
             .then(product => {
                 product.addCategory(req.body.CategoryId)
                 res.status(201).send({ message: 'Product created!', product })
             })
-            .catch(console.error)
+            .catch(err =>console.error(err))
 
     },
     getAll(req, res) {
-        Product.findAll({
-            include: [Category],
-        })
+        Product.findAll()
             .then(products => res.send(products))
             .catch(err => {
                 console.error(err);

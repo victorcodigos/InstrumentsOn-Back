@@ -11,7 +11,7 @@ app.use(express.json())
 
 //url fixed
 app.use("/products", require("./routes/products"))
- app.use("/categories", require("./routes/categories"))
+app.use("/categories", require("./routes/categories"))
 app.use("/users", require("./routes/users"))
 app.use("/ordens", require("./routes/ordens"))
 
