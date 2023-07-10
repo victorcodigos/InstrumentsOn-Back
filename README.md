@@ -76,7 +76,11 @@ For this project I have made a diagram creating different tables and the relatio
 
 ```
 
-# <h1 align="center"> 🎯 Using the Postman to testing the REST API 🖥️  </h1>
+# <h1 align="center"> 🎯 Using the Postman to testing the REST API 🖥️  </h1> 
+
+ #### CRUD is the acronym for CREATE, READ, UPDATE and DELETE. These terms describe the four essential operations for creating and managing persistent data elements, mainly in relational and NoSQL databases.
+ #### This project helps me a lot. From now I do understand the CRUD concept and I can create, view, modify and remove the data from the database, I can virtually create any application I can imagine.
+
 
 <h1 aligh="center"> </h1> 
 
