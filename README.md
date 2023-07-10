@@ -59,7 +59,7 @@ For this project I have made a diagram creating different tables and the relatio
 <img align="center" alt="mysql" height="50" width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-plain.svg">
 
 
-##  👩‍💻 How to download the project
+##  👩‍💻 How to download the project 
 
 ```bash
  # Clone the repository
@@ -75,6 +75,17 @@ For this project I have made a diagram creating different tables and the relatio
  $ npm start 
 
 ```
+
+# <h1 align="center"> 🎯 Using the Postman to testing the REST API 🖥️  </h1>
+
+<h1 aligh="center"> </h1> 
+
+<h1>
+  <img src="assets/CRUD.png"> </img>
+  
+  </h1> 
+
+
 
 
 ## Future Roadmap
