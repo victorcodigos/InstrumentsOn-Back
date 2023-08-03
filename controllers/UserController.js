@@ -61,7 +61,7 @@ const UserController = {
         }
     },
     getById(req, res) {
-        User.findByPk(req.params.id, {
+        User.findByPk(req.user.id, {
         })
           .then((user) => res.send(user))
           .catch((err) => {
