@@ -5,7 +5,7 @@ const router = express.Router()
 
 
 router.post("/",authentication, ProductController.create) 
-router.get("/",ProductController.getAll)
+router.get("/all",ProductController.getAll)
 router.get("/id/:id",ProductController.getById)
 router.get("/name/:name",ProductController.getOneByName)
 router.put("/id/:id",authentication,ProductController.update)
