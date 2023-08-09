@@ -69,6 +69,22 @@ const UserController = {
             res.status(500).send(err);
           });
       },
+      async getUserOrders(req, res) {
+        try {
+          const userOrders = await User.getById(req.user.id, {
+            include: {
+              model: orden,
+              include: product,
+            },
+          });
+          res.status(200).send({
+            message: "Users, orders, and products are available for you", userOrders, });
+        } catch (err) {
+          console.error(err);
+          res.status(500).send("There was a problem fetching data", err);
+        }
+      } 
+      
 }
 
 module.exports = UserController;

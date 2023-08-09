@@ -20,13 +20,13 @@ const ProductController = {
             .catch(err =>console.error(err))
 
     },
-    getAll(req, res) {
+    getAll(req, res, next) {
         Product.findAll()
             .then(products => res.send(products))
             .catch(err => {
                 console.error(err);
                 res.status(500).send(err)
-                
+                next()
             })
     },
     getById(req, res) {
