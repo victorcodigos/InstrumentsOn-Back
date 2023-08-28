@@ -25,6 +25,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
+      imagePath: { 
+        type: Sequelize.STRING 
+      },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE

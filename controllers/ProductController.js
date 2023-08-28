@@ -9,7 +9,7 @@ const ProductController = {
             name:req.body.name,
             type:req.body.type,
             year:req.body.year,
-            price:req.body.price
+            price:req.body.price,
         }
         
         Product.create(newProduct)

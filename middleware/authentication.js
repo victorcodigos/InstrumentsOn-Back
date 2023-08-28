@@ -3,11 +3,6 @@ const { Op } = Sequelize;
 const jwt = require('jsonwebtoken');
 const { jwt_secret } = require('../config/config.json')['development']
 
-
-
-
-
-
 const authentication = async (req, res, next) => {
     try {
         const token = req.headers.authorization;

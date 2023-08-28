@@ -3,11 +3,13 @@ const app = express()
 const jwt = require ("jsonwebtoken")
 const cors = require("cors")
 
+
 const PORT = 3000
 
 //middleware
 app.use(express.json())
 app.use(cors())
+
 
 //url fixed
 app.use("/products", require("./routes/products"))
