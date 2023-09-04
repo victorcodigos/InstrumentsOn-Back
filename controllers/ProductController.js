@@ -10,6 +10,7 @@ const ProductController = {
             type:req.body.type,
             year:req.body.year,
             price:req.body.price,
+            image:req.body.image,
         }
         
         Product.create(newProduct)

@@ -4,7 +4,7 @@ const { authentication, isAdmin } = require("../middleware/authentication")
 const router = express.Router()
 
 
-router.post("/",authentication,ProductController.create) 
+router.post("/",ProductController.create) 
 router.get("/all",ProductController.getAll)
 router.get("/id/:id",ProductController.getById)
 router.get("/name/:name",ProductController.getOneByName)

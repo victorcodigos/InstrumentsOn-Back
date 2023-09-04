@@ -50,7 +50,17 @@ module.exports = (sequelize, DataTypes) => {
             message: "Introduce price please",
           },
         },
-      }    }, {
+      },
+      image: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: {
+            msg: "Introduce image please",
+          }
+        }
+      }
+    }, {
     sequelize,
     modelName: 'Product',
   });
